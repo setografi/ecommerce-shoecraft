@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Card from "../components/Card";
 import { Link } from "react-router-dom";
+
+import Header from "../components/layout/Header";
+import Card from "../components/Card";
+import HeroSection from "../components/home/HeroSection";
+import Footer from "../components/layout/Footer";
 
 function HomePage() {
   const [dataproduct, setDataproduct] = useState([]);
@@ -18,22 +22,24 @@ function HomePage() {
   }, []);
 
   return (
-    <div className="my-16">
-      <div className="flex justify-center items-center mb-4">
-        <h1 className="text-3xl font-medium">ShoeCraft</h1>
-      </div>
+    <div className="">
+      <Header />
 
-      <div className="grid grid-cols-3">
-        {dataproduct?.map((items, i) => (
-          <Link to={`/product/${items._id}`} key={i}>
-            <Card
-              image={items?.thumbnailUrl}
-              name={items?.name}
-              price={items?.sell_price}
-            />
-          </Link>
-        ))}
-      </div>
+      <HeroSection />
+
+      {/* <div className="grid grid-cols-3">
+          {dataproduct?.map((items, i) => (
+            <Link to={`/product/${items._id}`} key={i}>
+              <Card
+                image={items?.thumbnailUrl}
+                name={items?.name}
+                price={items?.sell_price}
+              />
+            </Link>
+          ))}
+        </div> */}
+
+      <Footer />
     </div>
   );
 }
