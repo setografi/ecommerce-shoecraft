@@ -6,13 +6,37 @@ import HeroShoes2 from "../../assets/images/HeroShoes2.jpg";
 import HeroShoes3 from "../../assets/images/HeroShoes3.jpg";
 
 function HeroSection() {
+  // const textRef = useRef(null);
+
+  // useEffect(() => {
+  //   const ctx = gsap.context(() => {
+  //     gsap.to(textRef.current, {
+  //       xPercent: -100,
+  //       repeat: -1,
+  //       duration: 30,
+  //       ease: "none",
+  //     });
+  //   });
+  //   return () => ctx.revert();
+  // }, []);
+
   const textRef = useRef(null);
+
+  // Array of texts to loop
+  const textArray = [
+    "LATEST COLLECTIONS & OFFERS",
+    "LATEST COLLECTIONS & OFFERS",
+    "LATEST COLLECTIONS & OFFERS",
+    "LATEST COLLECTIONS & OFFERS",
+    "LATEST COLLECTIONS & OFFERS",
+  ];
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.to(textRef.current, {
-        xPercent: -100,
-        repeat: -1,
+      const element = textRef.current;
+      gsap.to(element, {
+        xPercent: -100, // Animasi bergerak ke kiri
+        repeat: -1, // Infinite
         duration: 30,
         ease: "none",
       });
@@ -21,21 +45,24 @@ function HeroSection() {
   }, []);
 
   return (
-    <div className="relative w-full h-full bg-white mt-16 md:mt-2">
-      <div className="grid grid-flow-row mx-12 py-5">
+    <section className="relative w-full h-full bg-neutralWhite mt-14 md:mt-10 lg:mt-2">
+      <div className="grid grid-flow-row mx-4 md:mx-12 py-5">
         <div
           className="w-full flex justify-between"
           style={{ fontSize: "calc(1rem + 10vw)" }}
         >
           {"ShoeCraft".split("").map((letter, index) => (
-            <span key={index} className="text-black font-medium uppercase">
+            <span
+              key={index}
+              className="text-neutralBlack font-medium uppercase"
+            >
               {letter}
             </span>
           ))}
         </div>
 
-        <div className="hidden md:block absolute top-32 right-12 -rotate-[15deg] bg-green-400 px-4">
-          <h3 className="text-black text-2xl font-medium uppercase">
+        <div className="hidden md:block absolute md:top-20 lg:top-32 right-12 -rotate-[15deg] bg-buttonGreen px-4">
+          <h3 className="text-neutralBlack md:text-lg lg:text-2xl font-medium uppercase">
             Step Into Style!
           </h3>
         </div>
@@ -46,7 +73,7 @@ function HeroSection() {
           </p>
 
           <button
-            className="bg-green-400 text-black text-lg font-medium px-3 py-2 hover:bg-green-500"
+            className="bg-buttonGreen text-neutralBlack text-lg font-medium px-3 py-2 hover:bg-hoverGreen"
             aria-label="Shop now for premium quality shoes"
           >
             Shop Now
@@ -54,17 +81,27 @@ function HeroSection() {
         </div>
 
         <div>
-          <hr className="absolute left-0 w-full bg-black h-1 border-none" />
+          <hr className="absolute left-0 w-full bg-neutralBlack h-1 border-none" />
         </div>
 
-        <div className="py-4 overflow-hidden whitespace-nowrap">
+        {/* <div className="py-4 overflow-hidden whitespace-nowrap">
           <h2 ref={textRef} className="text-4xl md:text-8xl font-medium">
             LATEST COLLECTIONS & OFFERS <span>&rarr;</span>
           </h2>
+        </div> */}
+
+        <div className="py-4 overflow-hidden whitespace-nowrap">
+          <div ref={textRef} className="flex text-4xl md:text-8xl font-medium">
+            {textArray.map((text, index) => (
+              <h2 key={index} className="mr-8">
+                {text} <span>&rarr;</span>
+              </h2>
+            ))}
+          </div>
         </div>
 
         <div>
-          <hr className="absolute left-0 w-full bg-black h-1 border-none" />
+          <hr className="absolute left-0 w-full bg-neutralBlack h-1 border-none" />
         </div>
 
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between py-4">
@@ -84,7 +121,7 @@ function HeroSection() {
             className="w-56 md:w-36 h-full object-cover mb-4 md:mb-0 md:mr-4"
           />
 
-          <div className="flex flex-col md:flex-row items-start md:items-center md:justify-between gap-4 md:gap-0">
+          <div className="flex flex-col lg:flex-row items-start lg:items-center lg:justify-between gap-4 lg:gap-0">
             <h2 className="text-5xl font-medium">
               Kick Off Your Look with <span>Exclusive Shoe Offers!</span>
             </h2>
@@ -98,8 +135,12 @@ function HeroSection() {
             />
           </div>
         </div>
+
+        <div>
+          <hr className="absolute left-0 w-full bg-neutralBlack h-1 border-none" />
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 

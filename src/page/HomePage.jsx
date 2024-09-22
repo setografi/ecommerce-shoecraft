@@ -5,6 +5,7 @@ import Header from "../components/layout/Header";
 import Card from "../components/Card";
 import HeroSection from "../components/home/HeroSection";
 import Footer from "../components/layout/Footer";
+import FeaturedSection from "../components/home/FeaturedSection";
 
 function HomePage() {
   const [dataproduct, setDataproduct] = useState([]);
@@ -26,6 +27,8 @@ function HomePage() {
       <Header />
 
       <HeroSection />
+
+      <FeaturedSection />
 
       {/* <div className="grid grid-cols-3">
           {dataproduct?.map((items, i) => (
