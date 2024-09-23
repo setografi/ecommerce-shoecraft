@@ -1,28 +1,29 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <nav className="fixed top-0 left-0 w-full bg-neutralWhite z-10 border-b-2 border-neutralBlack">
+    <nav className="fixed top-0 left-0 w-full bg-neutralWhite z-20 border-b-2 border-neutralBlack">
       <div className="flex justify-between items-center mx-4 md:mx-12 py-5">
         <div className="flex items-center justify-start">
-          <a
-            href="/"
+          <Link
+            to="/"
             className="text-xl font-medium text-neutralBlack uppercase"
           >
             ShoeCraft
-          </a>
+          </Link>
 
           <ul className="hidden lg:flex items-center justify-start gap-20 text-neutralBlack">
             <a href="#"></a>
             <li>
-              <a href="#" className="hover:underline hover:text-primary">
+              <Link to="/" className="hover:underline hover:text-primary">
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#" className="hover:underline hover:text-primary">
+              <Link to="/shop" className="hover:underline hover:text-primary">
                 Shop
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#" className="hover:underline hover:text-primary">

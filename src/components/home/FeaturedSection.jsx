@@ -2,34 +2,39 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import Shoes1 from "../../assets/images/Shoes1.jpg";
+import Shoes2 from "../../assets/images/Shoes2.jpg";
+import Shoes3 from "../../assets/images/Shoes3.jpg";
+import Shoes4 from "../../assets/images/Shoes4.jpg";
+
 gsap.registerPlugin(ScrollTrigger);
 
 const products = [
   {
     id: 1,
     name: "Classic Leather Sneakers",
-    image: "/path/to/image1.jpg",
+    image: Shoes1,
     price: "$120",
     label: "Best Seller",
   },
   {
     id: 2,
     name: "Retro Running Shoes",
-    image: "/path/to/image2.jpg",
+    image: Shoes2,
     price: "$110",
     label: "New Arrival",
   },
   {
     id: 3,
     name: "High-Top Trainers",
-    image: "/path/to/image3.jpg",
+    image: Shoes3,
     price: "$130",
     label: "Best Seller",
   },
   {
     id: 4,
     name: "Minimalist Casual Shoes",
-    image: "/path/to/image4.jpg",
+    image: Shoes4,
     price: "$100",
     label: "New Arrival",
   },
@@ -84,98 +89,92 @@ function FeaturedSection() {
         onLeave: () => master.play(),
         onLeaveBack: () => master.play(),
         onEnterBack: () => master.pause(),
-        markers: true, // remove or comment this line in production
+        // markers: true,
       },
     });
   }, []);
 
   return (
-    <section className="relative w-full h-full bg-neutralWhite">
-      <div className="mx-4 md:mx-12 py-5">
-        <h2 className="text-6xl font-bold text-neutralBlack mb-12">
-          Featured Products
-        </h2>
+    <section className="relative w-full h-full bg-neutralWhite px-4 md:px-12 py-5">
+      <h2 className="text-6xl font-medium text-neutralBlack mb-12">
+        Featured Products
+      </h2>
 
-        <div className="absolute left-0 top-10 w-full h-full flex items-center justify-center overflow-hidden">
-          <div
-            ref={wrapperRef1}
-            className="absolute w-[150%] h-16 md:h-20 left-1/2 bg-primary flex items-center rotate-[10deg]"
-          >
-            <div className="relative -left-[250px] h-12">
-              {[
-                "Best Seller",
-                "New Arrival",
-                "Iconic",
-                "Revolutionary",
-                "Radical",
-                "Unconventional",
-                "Edgy",
-              ].map((text, index) => (
-                <div
-                  key={index}
-                  className="box absolute w-64 h-12 text-neutralBlack text-5xl font-semibold leading-10 text-center"
-                >
-                  {text}
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div
-            ref={wrapperRef2}
-            className="absolute w-[160%] h-16 md:h-20 -left-1/2 bg-secondary flex items-center -rotate-[15deg]"
-          >
-            <div className="relative -left-[250px] md:left-[250px] h-12">
-              {[
-                "Best Seller",
-                "New Arrival",
-                "Iconic",
-                "Revolutionary",
-                "Radical",
-                "Unconventional",
-                "Edgy",
-              ].map((text, index) => (
-                <div
-                  key={index}
-                  className="box absolute w-64 h-12 text-neutralBlack text-5xl font-semibold leading-10 text-center"
-                >
-                  {text}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-12">
-          {products.map((product) => (
-            <div
-              key={product.id}
-              className="relative bg-neutralWhite flex flex-col border-4 border-neutralBlack"
-            >
-              <img
-                src={product.image}
-                alt={product.name}
-                className="w-full h-64 object-cover"
-              />
-              <div className="bg-neutralWhite flex flex-col flex-grow justify-between p-4 mt-4 border-t-4 border-neutralBlack border-dotted">
-                <h3 className="text-2xl font-medium text-neutralBlack">
-                  {product.name}
-                </h3>
-                <p className="text-xl text-neutralBlack">{product.price}</p>
+      <div className="absolute left-0 top-10 w-full h-full flex items-center justify-center overflow-hidden">
+        <div
+          ref={wrapperRef1}
+          className="absolute w-[150%] h-16 md:h-20 left-1/2 bg-primary flex items-center rotate-[10deg]"
+        >
+          <div className="relative -left-[250px] h-12">
+            {[
+              "Best Seller",
+              "New Arrival",
+              "Iconic",
+              "Revolutionary",
+              "Radical",
+              "Unconventional",
+              "Edgy",
+            ].map((text, index) => (
+              <div
+                key={index}
+                className="box absolute w-64 h-12 text-neutralBlack text-5xl font-semibold leading-10 text-center"
+              >
+                {text}
               </div>
+            ))}
+          </div>
+        </div>
 
-              {product.label && (
-                <span className="absolute top-2 left-2 bg-neutralBlack text-neutralWhite px-2 py-1 text-xs uppercase">
-                  {product.label}
-                </span>
-              )}
+        <div
+          ref={wrapperRef2}
+          className="absolute w-[160%] h-16 md:h-20 -left-1/2 bg-secondary flex items-center -rotate-[15deg]"
+        >
+          <div className="relative -left-[250px] md:left-[250px] h-12">
+            {[
+              "Best Seller",
+              "New Arrival",
+              "Iconic",
+              "Revolutionary",
+              "Radical",
+              "Unconventional",
+              "Edgy",
+            ].map((text, index) => (
+              <div
+                key={index}
+                className="box absolute w-64 h-12 text-neutralBlack text-5xl font-semibold leading-10 text-center"
+              >
+                {text}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-8">
+        {products.map((product) => (
+          <div
+            key={product.id}
+            className="relative bg-neutralWhite flex flex-col border-4 border-neutralBlack"
+          >
+            <img
+              src={product.image}
+              alt={product.name}
+              className="w-full h-64 object-cover"
+            />
+            <div className="bg-neutralWhite flex flex-col flex-grow justify-between p-4 mt-4 border-t-4 border-neutralBlack border-dotted">
+              <h3 className="text-2xl font-medium text-neutralBlack">
+                {product.name}
+              </h3>
+              <p className="text-xl text-neutralBlack">{product.price}</p>
             </div>
-          ))}
-        </div>
 
-        <div>
-          <hr className="absolute left-0 w-full bg-neutralBlack h-1 border-none" />
-        </div>
+            {product.label && (
+              <span className="absolute top-2 left-2 bg-neutralBlack text-neutralWhite px-2 py-1 text-xs uppercase">
+                {product.label}
+              </span>
+            )}
+          </div>
+        ))}
       </div>
     </section>
   );

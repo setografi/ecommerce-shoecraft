@@ -1,47 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
 
 import Header from "../components/layout/Header";
-import Card from "../components/Card";
-import HeroSection from "../components/home/HeroSection";
 import Footer from "../components/layout/Footer";
+import HeroSection from "../components/home/HeroSection";
 import FeaturedSection from "../components/home/FeaturedSection";
+import NewArrivals from "../components/home/NewArrivals";
+import AboutSection from "../components/home/AboutSection";
+import CustomerReviews from "../components/home/CustomerReviews";
+import ShopByCategory from "../components/home/ShopByCategory";
+import NewsletterSignup from "../components/home/NewsletterSignup";
+import SocialMediaFeed from "../components/home/SocialMediaFeed";
 
 function HomePage() {
-  const [dataproduct, setDataproduct] = useState([]);
-
-  useEffect(() => {
-    async function getAllproduct() {
-      const respons = await fetch(
-        "https://api-shoecraft.vercel.app/api/products"
-      );
-      const data = await respons.json();
-      setDataproduct(data.data);
-      console.log(data.data);
-    }
-    getAllproduct();
-  }, []);
-
   return (
-    <div className="">
+    <div>
       <Header />
-
       <HeroSection />
-
       <FeaturedSection />
-
-      {/* <div className="grid grid-cols-3">
-          {dataproduct?.map((items, i) => (
-            <Link to={`/product/${items._id}`} key={i}>
-              <Card
-                image={items?.thumbnailUrl}
-                name={items?.name}
-                price={items?.sell_price}
-              />
-            </Link>
-          ))}
-        </div> */}
-
+      <NewArrivals />
+      <AboutSection />
+      <CustomerReviews />
+      <ShopByCategory />
+      <NewsletterSignup />
+      <SocialMediaFeed />
       <Footer />
     </div>
   );

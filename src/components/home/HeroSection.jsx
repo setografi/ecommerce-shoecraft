@@ -45,8 +45,8 @@ function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full h-full bg-neutralWhite mt-14 md:mt-10 lg:mt-2">
-      <div className="grid grid-flow-row mx-4 md:mx-12 py-5">
+    <section className="relative w-full h-full bg-neutralWhite mt-14 md:mt-10 lg:mt-2 px-4 md:px-12 py-5">
+      <div className="grid grid-flow-row">
         <div
           className="w-full flex justify-between"
           style={{ fontSize: "calc(1rem + 10vw)" }}
