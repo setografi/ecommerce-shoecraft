@@ -53,8 +53,8 @@ function NewArrivals() {
   };
 
   return (
-    <section className="w-full h-full bg-neutralWhite">
-      <div className="mx-4 md:mx-12 py-5">
+    <section className="w-full h-full bg-neutralWhite px-4 md:px-12 py-8">
+      <div className="">
         <h2 className="text-6xl font-medium text-neutralBlack mb-12">
           New Arrivals
         </h2>
@@ -62,11 +62,11 @@ function NewArrivals() {
         <div className="relative flex items-center">
           {/* Previous Button */}
           <button
-            className="absolute left-0 z-10 bg-black text-white px-4 py-2 hover:bg-gray-800"
+            className="absolute top-0 left-0 z-10 h-[35rem] bg-neutralWhite text-neutralBlack text-2xl p-2 transition duration-300 hover:bg-hoverWhite border-4 border-neutralBlack"
             onClick={prevSlide}
             aria-label="Previous"
           >
-            &#9664;
+            <span className="inline-block -rotate-90">Prev</span>
           </button>
 
           {/* Carousel */}
@@ -78,23 +78,31 @@ function NewArrivals() {
               {newArrivals.map((product) => (
                 <div
                   key={product.id}
-                  className="w-full flex-shrink-0 text-center p-4"
+                  className="w-full flex-shrink-0 text-center"
                 >
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-[30rem] object-cover"
+                    className="w-full h-[30rem] object-cover border-4 border-neutralBlack"
                   />
-                  <h3 className="text-2xl font-medium text-white mt-4">
-                    {product.name}
-                  </h3>
-                  <p className="text-xl text-white">{product.price}</p>
-                  <button
-                    className="mt-4 bg-buttonGreen text-black font-medium px-4 py-2 hover:bg-hoverGreen"
-                    aria-label={`Shop now for ${product.name}`}
-                  >
-                    Shop Now
-                  </button>
+
+                  <div className="flex justify-between border-x-4 border-b-4 border-neutralBlack px-[4.2rem]">
+                    <div className="flex flex-col justify-center items-start px-4 py-2">
+                      <h3 className="text-2xl font-medium text-neutralBlack">
+                        {product.name}
+                      </h3>
+                      <p className="text-xl text-neutralBlack">
+                        {product.price}
+                      </p>
+                    </div>
+
+                    <button
+                      className="bg-buttonGreen text-black font-medium text-2xl px-4 py-2 hover:bg-hoverGreen border-l-4 border-neutralBlack"
+                      aria-label={`Shop now for ${product.name}`}
+                    >
+                      Shop Now
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -102,11 +110,11 @@ function NewArrivals() {
 
           {/* Next Button */}
           <button
-            className="absolute right-0 z-10 bg-black text-white px-4 py-2 hover:bg-gray-800"
+            className="absolute top-0 right-0 z-10 h-[35rem] bg-neutralWhite text-neutralBlack text-2xl p-2 transition duration-300 hover:bg-hoverWhite border-4 border-neutralBlack"
             onClick={nextSlide}
             aria-label="Next"
           >
-            &#9654;
+            <span className="inline-block rotate-90">Next</span>
           </button>
         </div>
       </div>

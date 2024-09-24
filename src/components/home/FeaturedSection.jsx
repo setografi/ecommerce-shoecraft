@@ -95,7 +95,7 @@ function FeaturedSection() {
   }, []);
 
   return (
-    <section className="relative w-full h-full bg-neutralWhite px-4 md:px-12 py-5">
+    <section className="relative w-full h-full bg-neutralWhite px-4 md:px-12 py-8">
       <h2 className="text-6xl font-medium text-neutralBlack mb-12">
         Featured Products
       </h2>
@@ -150,7 +150,7 @@ function FeaturedSection() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 pb-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {products.map((product) => (
           <div
             key={product.id}
@@ -161,7 +161,7 @@ function FeaturedSection() {
               alt={product.name}
               className="w-full h-64 object-cover"
             />
-            <div className="bg-neutralWhite flex flex-col flex-grow justify-between p-4 mt-4 border-t-4 border-neutralBlack border-dotted">
+            <div className="bg-neutralWhite flex flex-col flex-grow justify-between p-4  border-t-4 border-neutralBlack border-dotted">
               <h3 className="text-2xl font-medium text-neutralBlack">
                 {product.name}
               </h3>

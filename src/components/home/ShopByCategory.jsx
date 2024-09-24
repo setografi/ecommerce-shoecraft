@@ -9,18 +9,20 @@ const categories = [
 
 function ShopByCategory() {
   return (
-    <section className="py-16 px-8 bg-zinc-900">
-      <h2 className="text-6xl font-bold text-white mb-12">Shop by Category</h2>
+    <section className="bg-primary px-4 md:px-12 py-8">
+      <h2 className="text-6xl font-bold text-neutralWhite mb-12">
+        Shop by Category
+      </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {categories.map((category) => (
           <div key={category.id} className="relative group">
             <img
               src={category.image}
               alt={category.name}
-              className="w-full h-64 object-cover border-4 border-white"
+              className="w-full h-64 object-cover border-4 border-neutralWhite"
             />
-            <div className="absolute inset-0 bg-black bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <h3 className="text-3xl font-bold text-white uppercase">
+            <div className="absolute inset-0 bg-neutralBlack bg-opacity-50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <h3 className="text-3xl font-bold text-neutralWhite uppercase">
                 {category.name}
               </h3>
             </div>

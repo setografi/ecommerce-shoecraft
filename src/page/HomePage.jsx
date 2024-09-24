@@ -19,7 +19,7 @@ function HomePage() {
       <FeaturedSection />
       <NewArrivals />
       <AboutSection />
-      <CustomerReviews />
+      {/* <CustomerReviews /> */}
       <ShopByCategory />
       <NewsletterSignup />
       <SocialMediaFeed />

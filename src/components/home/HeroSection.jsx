@@ -45,7 +45,7 @@ function HeroSection() {
   }, []);
 
   return (
-    <section className="relative w-full h-full bg-neutralWhite mt-14 md:mt-10 lg:mt-2 px-4 md:px-12 py-5">
+    <section className="relative w-full h-full bg-neutralWhite mt-14 md:mt-10 lg:mt-2 px-4 md:px-12 py-8">
       <div className="grid grid-flow-row">
         <div
           className="w-full flex justify-between"
@@ -67,13 +67,13 @@ function HeroSection() {
           </h3>
         </div>
 
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-start pb-6 gap-8">
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-start pb-6 gap-6">
           <p className="text-xl md:text-4xl uppercase">
             Premium Quality Shoes for Every Style
           </p>
 
           <button
-            className="bg-buttonGreen text-neutralBlack text-lg font-medium px-3 py-2 hover:bg-hoverGreen"
+            className="bg-buttonGreen text-neutralBlack text-xl font-medium px-3 py-2 hover:bg-hoverGreen"
             aria-label="Shop now for premium quality shoes"
           >
             Shop Now
@@ -93,7 +93,7 @@ function HeroSection() {
         <div className="py-4 overflow-hidden whitespace-nowrap">
           <div ref={textRef} className="flex text-4xl md:text-8xl font-medium">
             {textArray.map((text, index) => (
-              <h2 key={index} className="mr-8">
+              <h2 key={index} className="mx-4">
                 {text} <span>&rarr;</span>
               </h2>
             ))}
