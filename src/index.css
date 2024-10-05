@@ -3,6 +3,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   font-family: "Familjen Grotesk", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
 }

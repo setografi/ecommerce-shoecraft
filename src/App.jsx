@@ -3,6 +3,8 @@ import HomePage from "./page/HomePage";
 import ShopPage from "./page/ShopPage";
 import DetailPage from "./page/DetailPage";
 
+import "./App.css";
+
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {

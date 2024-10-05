@@ -28,12 +28,12 @@ function AboutSection() {
   }, []);
 
   return (
-    <section className="w-full h-full bg-neutralWhite px-4 md:px-12 pb-8">
-      <div className="relative text-2xl leading-relaxed text-zinc-800">
-        <div>
-          <hr className="absolute left-0 w-full bg-neutralBlack h-1 border-none" />
-        </div>
+    <section className="w-full h-full px-4 md:px-12">
+      <div>
+        <hr className="absolute left-0 w-full border-t-4 border-dashed border-neutralBlack" />
+      </div>
 
+      <div className="text-2xl leading-relaxed text-zinc-800">
         <div className="w-full h-full grid grid-flow-col justify-start items-start gap-4">
           <div className="h-full bg-accent p-4 border-x-4 border-neutralBlack">
             <h2 className="text-neutralWhite text-6xl font-medium">About Us</h2>
@@ -82,26 +82,10 @@ function AboutSection() {
             className="w-full h-56 object-cover"
           />
         </div>
+      </div>
 
-        <div className="absolute left-0 w-full">
-          {/* <hr className="absolute left-0 w-full bg-neutralBlack h-1 border-none" /> */}
-
-          <div style={{ width: "100%", height: "1px" }}>
-            <svg width="100%" height="4" viewBox="0 0 100 1">
-              <defs>
-                <pattern
-                  id="dotted-pattern"
-                  patternUnits="userSpaceOnUse"
-                  width="10"
-                  height="4"
-                >
-                  <circle cx="4" cy="0.5" r="1" fill="black" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="1" fill="url(#dotted-pattern)" />
-            </svg>
-          </div>
-        </div>
+      <div>
+        <hr className="absolute left-0 w-full border-t-4 border-dashed border-neutralBlack" />
       </div>
     </section>
   );

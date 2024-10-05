@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const plugin = require("tailwindcss/plugin");
+
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
@@ -16,7 +18,22 @@ export default {
         hoverAccent: "#008F8F", // Warna hover aksen
         hoverNeutralBlack: "#4A4A4A",
       },
+      fontFamily: {
+        grotesk: ["Familjen Grotesk", "sans-serif"],
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    plugin(function ({ addBase, theme }) {
+      addBase({
+        ":root": Object.keys(theme("colors")).reduce((vars, color) => {
+          const value = theme(`colors.${color}`);
+          if (typeof value === "string") {
+            vars[`--color-${color}`] = value;
+          }
+          return vars;
+        }, {}),
+      });
+    }),
+  ],
 };
