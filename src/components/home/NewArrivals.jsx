@@ -83,6 +83,7 @@ function NewArrivals() {
                   <img
                     src={product.image}
                     alt={product.name}
+                    loading="lazy"
                     className="w-full h-[30rem] object-cover border-4 border-neutralBlack"
                   />
 

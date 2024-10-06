@@ -109,6 +109,7 @@ function HeroSection() {
             src={HeroShoes1}
             width={3069}
             height={2258}
+            loading="eager"
             alt="domino-studio-164_6wVEHfI-unsplash"
             className="w-56 h-full object-cover mb-2 md:mb-0 md:mr-2"
           />
@@ -117,6 +118,7 @@ function HeroSection() {
             src={HeroShoes3}
             width={1800}
             height={1200}
+            loading="eager"
             alt="lindsay-henwood-7_kRuX1hSXM-unsplash"
             className="w-56 md:w-36 h-full object-cover mb-4 md:mb-0 md:mr-4"
           />
@@ -130,6 +132,7 @@ function HeroSection() {
               src={HeroShoes2}
               width={3069}
               height={2258}
+              loading="eager"
               alt="imani-bahati-LxVxPA1LOVM-unsplash"
               className="w-56 h-full object-cover"
             />

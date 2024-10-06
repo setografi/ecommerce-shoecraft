@@ -22,7 +22,7 @@ function HomePage() {
       {/* <CustomerReviews /> */}
       <ShopByCategory />
       <NewsletterSignup />
-      <SocialMediaFeed />
+      {/* <SocialMediaFeed /> */}
       <Footer />
     </div>
   );

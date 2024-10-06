@@ -2,54 +2,53 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="w-full bg-green-300 border-t-2 border-black">
-      <div className="mx-4 md:mx-12 py-5">
-        <p className="text-black text-sm max-w-lg">
-          Located in the heart of Jakarta, ShoeCraft specializes in premium
-          footwear design and craftsmanship. We offer a wide range of services
-          including custom shoe designs, exclusive collections, and sustainable
-          footwear solutions. Our commitment to quality ensures that every step
-          you take is both stylish and comfortable. We also collaborate with
-          designers to bring you limited edition releases and innovative styles,
-          crafted for every walk of life.
-        </p>
+    <footer className="w-full bg-secondary text-neutralBlack border-t-8 border-neutralBlack relative">
+      <div className="mx-4 md:mx-12 py-12">
+        <div className="overflow-hidden mb-8">
+          <h2 className="text-[18vw] font-black leading-none uppercase tracking-tighter whitespace-nowrap">
+            {"ShoeCraft".split("").map((letter, index) => (
+              <span key={index} className="inline-block">
+                {letter}
+              </span>
+            ))}
+          </h2>
+        </div>
 
-        <ul className="flex flex-col md:flex-row items-start md:items-center justify-between mt-16">
-          <li>© ShoeCraft 2024</li>
+        <div className="flex flex-col md:flex-row gap-8">
+          <p className="text-lg max-w-2xl font-bold">
+            Located in Jakarta's heart, ShoeCraft delivers premium footwear with
+            unmatched design and craftsmanship. From custom creations to
+            sustainable solutions, we ensure every step is a statement. Join us
+            in redefining style, one shoe at a time.
+          </p>
 
-          <li>
-            <a href="#"></a>
-            <a href="#" className="hover:underline">
-              Shipping
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:underline">
-              Privacy
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:underline">
-              Newsletter
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:underline">
-              Contact
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:underline">
-              FAQ
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:underline">
-              Credits
-            </a>
-          </li>
-        </ul>
+          <nav className="flex-1">
+            <ul className="grid grid-cols-2 md:grid-cols-3 gap-4 text-xl font-bold uppercase">
+              {[
+                "Shipping",
+                "Privacy",
+                "Newsletter",
+                "Contact",
+                "FAQ",
+                "Credits",
+              ].map((item) => (
+                <li
+                  key={item}
+                  className="transform hover:skew-x-12 transition-transform"
+                >
+                  <a href="#" className="hover:underline">
+                    {item}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
+        </div>
+
+        <p className="mt-16 text-xl font-bold">© ShoeCraft 2024</p>
       </div>
+
+      <div className="absolute bottom-0 left-0 w-full h-4 bg-accent"></div>
     </footer>
   );
 }

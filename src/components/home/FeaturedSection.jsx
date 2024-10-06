@@ -159,6 +159,7 @@ function FeaturedSection() {
             <img
               src={product.image}
               alt={product.name}
+              loading="lazy"
               className="w-full h-64 object-cover"
             />
             <div className="bg-neutralWhite flex flex-col flex-grow justify-between p-4  border-t-4 border-neutralBlack border-dotted">

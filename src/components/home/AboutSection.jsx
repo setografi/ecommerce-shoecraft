@@ -79,6 +79,7 @@ function AboutSection() {
           <img
             src={About1}
             alt="tamas-pap-_PLpBPi6IB4-unsplash"
+            loading="lazy"
             className="w-full h-56 object-cover"
           />
         </div>
