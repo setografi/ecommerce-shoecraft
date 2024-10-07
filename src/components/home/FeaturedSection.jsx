@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import CardProduct from "../common/CardProduct";
 
 import Shoes1 from "../../assets/images/Shoes1.jpg";
 import Shoes2 from "../../assets/images/Shoes2.jpg";
@@ -152,29 +153,14 @@ function FeaturedSection() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         {products.map((product) => (
-          <div
+          <CardProduct
             key={product.id}
-            className="relative bg-neutralWhite flex flex-col border-4 border-neutralBlack"
-          >
-            <img
-              src={product.image}
-              alt={product.name}
-              loading="lazy"
-              className="w-full h-64 object-cover"
-            />
-            <div className="bg-neutralWhite flex flex-col flex-grow justify-between p-4  border-t-4 border-neutralBlack border-dotted">
-              <h3 className="text-2xl font-medium text-neutralBlack">
-                {product.name}
-              </h3>
-              <p className="text-xl text-neutralBlack">{product.price}</p>
-            </div>
-
-            {product.label && (
-              <span className="absolute top-2 left-2 bg-neutralBlack text-neutralWhite px-2 py-1 text-xs uppercase">
-                {product.label}
-              </span>
-            )}
-          </div>
+            id={product.id}
+            image={product.image}
+            name={product.name}
+            price={product.price}
+            label={product.label}
+          />
         ))}
       </div>
     </section>

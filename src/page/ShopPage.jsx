@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import Card from "../components/Card";
+import Card from "../components/common/Card";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 
