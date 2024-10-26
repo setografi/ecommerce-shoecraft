@@ -1,7 +1,5 @@
 import React, { Suspense } from "react";
 
-import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
 import HeroSection from "../components/home/HeroSection";
 import NewsletterSignup from "../components/home/NewsletterSignup";
 
@@ -19,14 +17,12 @@ const ShopByCategory = React.lazy(() =>
 function HomePage() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <Header />
       <HeroSection />
       <FeaturedSection />
       <NewArrivals />
       <AboutSection />
       <ShopByCategory />
       <NewsletterSignup />
-      <Footer />
     </Suspense>
   );
 }

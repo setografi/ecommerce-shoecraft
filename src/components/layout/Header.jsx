@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Header() {
   return (
-    <nav className="fixed top-0 left-0 w-full bg-neutralWhite z-20 border-b-4 border-neutralBlack">
+    <nav className="fixed top-0 left-0 w-full bg-neutralWhite z-40 border-b-4 border-neutralBlack">
       <div className="flex justify-between items-center mx-4 md:mx-12 py-5">
         <div className="flex items-center justify-start">
           <Link
@@ -38,7 +38,7 @@ function Header() {
           </ul>
         </div>
 
-        <ul className="hidden lg:flex justify-end text-neutralBlack">
+        <ul className=" text-neutralBlack">
           <li>
             <a href="#" className="hover:underline hover:text-primary">
               Cart

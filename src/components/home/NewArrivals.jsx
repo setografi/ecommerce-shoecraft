@@ -55,7 +55,7 @@ function NewArrivals() {
   return (
     <section className="w-full h-full bg-neutralWhite px-4 md:px-12 py-8">
       <div className="">
-        <h2 className="text-6xl font-medium text-neutralBlack mb-12">
+        <h2 className="text-5xl md:text-8xl font-black mb-8 uppercase tracking-tighter text-neutralBlack">
           New Arrivals
         </h2>
 

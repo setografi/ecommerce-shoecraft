@@ -36,7 +36,9 @@ function AboutSection() {
       <div className="text-2xl leading-relaxed text-zinc-800">
         <div className="w-full h-full grid grid-flow-col justify-start items-start gap-4">
           <div className="h-full bg-accent p-4 border-x-4 border-neutralBlack">
-            <h2 className="text-neutralWhite text-6xl font-medium">About Us</h2>
+            <h2 className="text-neutralWhite text-5xl md:text-8xl font-black uppercase tracking-tighter transform -skew-x-12">
+              About Us
+            </h2>
           </div>
 
           <p className="py-4">

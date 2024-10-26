@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
+// import { gsap } from "gsap";
 import Category01 from "../../assets/images/HeroShoes1.jpg";
 import Category02 from "../../assets/images/Shoes3.jpg";
 import Category03 from "../../assets/images/Shoes4.jpg";
@@ -13,47 +13,47 @@ const categories = [
 ];
 
 function ShopByCategory() {
-  const sectionRef = useRef(null);
-  const titleRef = useRef(null);
-  const categoryRefs = useRef([]);
+  // const sectionRef = useRef(null);
+  // const titleRef = useRef(null);
+  // const categoryRefs = useRef([]);
 
-  useEffect(() => {
-    const section = sectionRef.current;
-    const title = titleRef.current;
-    const categoryElements = categoryRefs.current;
+  // useEffect(() => {
+  //   const section = sectionRef.current;
+  //   const title = titleRef.current;
+  //   const categoryElements = categoryRefs.current;
 
-    gsap.set(section, { opacity: 0 });
-    gsap.set(title, { x: -100, opacity: 0 });
-    gsap.set(categoryElements, { y: 50, opacity: 0 });
+  //   gsap.set(section, { opacity: 0 });
+  //   gsap.set(title, { x: -100, opacity: 0 });
+  //   gsap.set(categoryElements, { y: 50, opacity: 0 });
 
-    const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+  //   const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-    tl.to(section, { opacity: 1, duration: 0.5 })
-      .to(title, { x: 0, opacity: 1, duration: 0.8 })
-      .to(categoryElements, {
-        y: 0,
-        opacity: 1,
-        stagger: 0.2,
-        duration: 0.8,
-      });
+  //   tl.to(section, { opacity: 1, duration: 0.5 })
+  //     .to(title, { x: 0, opacity: 1, duration: 0.8 })
+  //     .to(categoryElements, {
+  //       y: 0,
+  //       opacity: 1,
+  //       stagger: 0.2,
+  //       duration: 0.8,
+  //     });
 
-    // Glitch effect on hover
-    categoryElements.forEach((el) => {
-      el.addEventListener("mouseenter", () => {
-        gsap.to(el, {
-          skewX: () => Math.random() * 10 - 5,
-          skewY: () => Math.random() * 10 - 5,
-          duration: 0.1,
-          repeat: 5,
-          yoyo: true,
-        });
-      });
-    });
-  }, []);
+  //   // Glitch effect on hover
+  //   categoryElements.forEach((el) => {
+  //     el.addEventListener("mouseenter", () => {
+  //       gsap.to(el, {
+  //         skewX: () => Math.random() * 10 - 5,
+  //         skewY: () => Math.random() * 10 - 5,
+  //         duration: 0.1,
+  //         repeat: 5,
+  //         yoyo: true,
+  //       });
+  //     });
+  //   });
+  // }, []);
 
   return (
     <section
-      ref={sectionRef}
+      // ref={sectionRef}
       className="bg-secondary px-4 md:px-12 pt-8 pb-16 relative overflow-hidden"
     >
       {/* Brutalist decorative elements */}
@@ -63,7 +63,7 @@ function ShopByCategory() {
       <div className="absolute top-1/4 right-0 w-8 h-1/4 bg-buttonGreen"></div>
 
       <h2
-        ref={titleRef}
+        // ref={titleRef}
         className="text-8xl font-black text-neutralBlack mb-12 relative z-10 uppercase tracking-tighter"
       >
         Shop by
@@ -75,7 +75,7 @@ function ShopByCategory() {
         {categories.map((category, index) => (
           <div
             key={category.id}
-            ref={(el) => (categoryRefs.current[index] = el)}
+            // ref={(el) => (categoryRefs.current[index] = el)}
             className="relative group"
           >
             <div className="absolute inset-0 bg-primary opacity-20 group-hover:opacity-0 transition-opacity duration-300"></div>

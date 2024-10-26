@@ -15,7 +15,7 @@ function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row gap-8">
-          <p className="text-lg max-w-2xl font-bold">
+          <p className="text-lg max-w-xl font-bold">
             Located in Jakarta's heart, ShoeCraft delivers premium footwear with
             unmatched design and craftsmanship. From custom creations to
             sustainable solutions, we ensure every step is a statement. Join us

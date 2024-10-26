@@ -97,11 +97,11 @@ function FeaturedSection() {
 
   return (
     <section className="relative w-full h-full bg-neutralWhite px-4 md:px-12 py-8">
-      <h2 className="text-6xl font-medium text-neutralBlack mb-12">
+      <h2 className="text-5xl md:text-8xl font-black mb-8 uppercase tracking-tighter text-neutralBlack">
         Featured Products
       </h2>
 
-      <div className="absolute left-0 top-10 w-full h-full flex items-center justify-center overflow-hidden">
+      <div className="absolute left-0 top-14 w-full h-full flex items-center justify-center overflow-hidden">
         <div
           ref={wrapperRef1}
           className="absolute w-[150%] h-16 md:h-20 left-1/2 bg-primary flex items-center rotate-[10deg]"

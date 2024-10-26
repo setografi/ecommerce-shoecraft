@@ -1,10 +1,24 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { ArrowLeft, ShoppingCart, Zap } from "lucide-react";
 
 function DetailPage() {
   const { id } = useParams();
 
   const [dataproduct, setDataproduct] = useState([]);
+  const navigate = useNavigate();
+  const [selectedSize, setSelectedSize] = useState(null);
+  const [isAddingToCart, setIsAddingToCart] = useState(false);
+
+  const sizes = ["US 7", "US 8", "US 9", "US 10", "US 11", "US 12"];
+
+  const handleAddToCart = () => {
+    setIsAddingToCart(true);
+    setTimeout(() => {
+      setIsAddingToCart(false);
+      // Add actual cart logic here
+    }, 1000);
+  };
 
   useEffect(() => {
     async function getOne() {
@@ -17,9 +31,135 @@ function DetailPage() {
     }
     getOne();
   }, []);
+
   return (
-    <div className="max-w-3xl flex flex-col md:flex-row justify-start items-start p-4 mx-auto my-16 border-[1px] border-black gap-4">
-      <img
+    <div className="min-h-screen bg-neutralWhite py-8 mt-14">
+      {/* Back Navigation */}
+      <div className="max-w-6xl mx-auto px-4 mb-8">
+        <button
+          onClick={() => navigate("/shop")}
+          className="group flex items-center gap-2 px-6 py-3 bg-neutralWhite border-4 border-neutralBlack font-grotesk font-bold hover:bg-secondary transition-colors"
+        >
+          <ArrowLeft
+            size={20}
+            className="group-hover:-translate-x-1 transition-transform"
+          />
+          Back to Shop
+        </button>
+      </div>
+
+      {dataproduct && (
+        <div className="max-w-6xl mx-auto px-4">
+          <div className="relative">
+            {/* Decorative Background */}
+            <div className="absolute -top-4 -left-4 w-full h-full bg-secondary border-4 border-neutralBlack" />
+
+            {/* Main Content */}
+            <div className="relative grid md:grid-cols-2 gap-12 bg-neutralWhite border-4 border-neutralBlack p-8">
+              {/* Product Images */}
+              <div className="space-y-4">
+                <div className="border-4 border-neutralBlack overflow-hidden">
+                  <img
+                    src={dataproduct?.thumbnailUrl}
+                    alt={dataproduct?.name}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/* Thumbnail Gallery */}
+                <div className="grid grid-cols-4 gap-2">
+                  {[...Array(4)].map((_, i) => (
+                    <div
+                      key={i}
+                      className="border-2 border-neutralBlack overflow-hidden cursor-pointer hover:border-primary"
+                    >
+                      <img
+                        src={dataproduct?.thumbnailUrl}
+                        alt={`${dataproduct?.name} view ${i + 1}`}
+                        className="w-full h-24 object-cover"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Product Info */}
+              <div className="space-y-8">
+                <div>
+                  <h1 className="font-grotesk text-4xl font-bold text-neutralBlack mb-4">
+                    {dataproduct?.name}
+                  </h1>
+                  <div className="inline-block bg-primary text-neutralWhite px-6 py-2 transform -rotate-2">
+                    <span className="font-grotesk text-2xl font-bold">
+                      ${dataproduct?.sell_price}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="space-y-4">
+                  <h2 className="font-grotesk text-xl font-bold">
+                    Description
+                  </h2>
+                  <p className="font-grotesk leading-relaxed">
+                    {dataproduct?.description}
+                  </p>
+                </div>
+
+                {/* Size Selection */}
+                <div className="space-y-4">
+                  <h2 className="font-grotesk text-xl font-bold">
+                    Select Size
+                  </h2>
+                  <div className="grid grid-cols-3 gap-2">
+                    {sizes.map((size) => (
+                      <button
+                        key={size}
+                        onClick={() => setSelectedSize(size)}
+                        className={`
+                          px-4 py-3 border-2 border-neutralBlack font-grotesk font-bold
+                          ${
+                            selectedSize === size
+                              ? "bg-accent text-neutralWhite"
+                              : "bg-neutralWhite hover:bg-secondary"
+                          }
+                        `}
+                      >
+                        {size}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Add to Cart Button */}
+                <button
+                  onClick={handleAddToCart}
+                  disabled={!selectedSize || isAddingToCart}
+                  className={`
+                    w-full py-4 border-4 border-neutralBlack font-grotesk font-bold text-lg
+                    flex items-center justify-center gap-2
+                    transition-all transform hover:-translate-y-1
+                    ${
+                      selectedSize
+                        ? "bg-buttonGreen hover:bg-hoverGreen"
+                        : "bg-neutralWhite cursor-not-allowed"
+                    }
+                  `}
+                >
+                  {isAddingToCart ? (
+                    <Zap className="animate-spin" size={24} />
+                  ) : (
+                    <>
+                      <ShoppingCart size={24} />
+                      {selectedSize ? "Add to Cart" : "Select a Size"}
+                    </>
+                  )}
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* <img
         className="w-96 h-96"
         src={dataproduct?.thumbnailUrl}
         alt=""
@@ -31,7 +171,7 @@ function DetailPage() {
         <p className="text-lg font-medium">
           Price : <span>{dataproduct?.sell_price}</span>
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }
