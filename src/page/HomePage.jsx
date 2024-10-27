@@ -1,8 +1,11 @@
-import React, { Suspense, useState, useEffect } from "react";
+import React, { Suspense } from "react";
 
-import Loading from "../components/layout/LoadingPage";
 import HeroSection from "../components/home/HeroSection";
 import NewsletterSignup from "../components/home/NewsletterSignup";
+// import FeaturedSection from "../components/home/FeaturedSection";
+// import NewArrivals from "../components/home/NewArrivals";
+// import AboutSection from "../components/home/AboutSection";
+// import ShopByCategory from "../components/home/ShopByCategory";
 
 const FeaturedSection = React.lazy(() =>
   import("../components/home/FeaturedSection")
@@ -17,21 +20,6 @@ const ShopByCategory = React.lazy(() =>
 );
 
 function HomePage() {
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulasi loading time minimal
-    const minLoadTime = setTimeout(() => {
-      setIsLoading(false);
-    }, 5000);
-
-    return () => clearTimeout(minLoadTime);
-  }, []);
-
-  if (isLoading) {
-    return <Loading />;
-  }
-
   return (
     <Suspense fallback={<div>Loading...</div>}>
       <HeroSection />
