@@ -99,24 +99,6 @@ function ShopPage() {
         setIsFilterOpen={setIsFilterOpen}
       />
     </div>
-
-    // <div>
-    //   <Header />
-
-    //   <div className="grid grid-cols-3 mt-16">
-    //     {dataproduct?.map((items, i) => (
-    //       <Link to={`/product/${items._id}`} key={i}>
-    //         <Card
-    //           image={items?.thumbnailUrl}
-    //           name={items?.name}
-    //           price={items?.sell_price}
-    //         />
-    //       </Link>
-    //     ))}
-    //   </div>
-
-    //   <Footer />
-    // </div>
   );
 }
 
