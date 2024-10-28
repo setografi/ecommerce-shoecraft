@@ -45,7 +45,19 @@ function Footer() {
           </nav>
         </div>
 
-        <p className="mt-16 text-xl font-bold">© ShoeCraft 2024</p>
+        <p className="mt-16 text-xl font-bold">
+          © 2024 ShoeCraft | Design by
+          <span>
+            <a
+              href="https://github.com/setografi"
+              target="_blank"
+              className="hover:underline "
+            >
+              {" "}
+              Setografi
+            </a>
+          </span>
+        </p>
       </div>
 
       <div className="absolute bottom-0 left-0 w-full h-4 bg-accent"></div>

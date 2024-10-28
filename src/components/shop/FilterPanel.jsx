@@ -28,7 +28,7 @@ function FilterPanel({ isFilterOpen, setIsFilterOpen }) {
         </div>
 
         {/* Filter Sections */}
-        <div className="space-y-6">
+        <div className="overflow-y-auto max-h-[calc(100vh-150px)]">
           {/* Category Filter */}
           <div className="space-y-3">
             <h3 className="font-grotesk font-bold text-lg">Category</h3>

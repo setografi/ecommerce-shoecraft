@@ -8,6 +8,7 @@ import HomePage from "./page/HomePage";
 import ShopPage from "./page/ShopPage";
 import DetailPage from "./page/DetailPage";
 import AboutPage from "./page/AboutPage";
+import CartPage from "./page/CartPage";
 
 import Loading from "./components/layout/LoadingPage";
 
@@ -35,6 +36,7 @@ function App() {
         <Route path="/product/:id" element={<DetailPage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/cart" element={<CartPage />} />
       </Routes>
       <Footer />
     </Router>

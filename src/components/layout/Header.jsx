@@ -1,12 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { ShoppingCart } from "lucide-react";
 
 function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [cartCount, setCartCount] = useState(0);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  useEffect(() => {
+    const updateCartCount = () => {
+      const cart = JSON.parse(localStorage.getItem("cart")) || [];
+      const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+      setCartCount(count);
+    };
+
+    updateCartCount();
+
+    // Listen for storage changes
+    window.addEventListener("storage", updateCartCount);
+    // Custom event for cart updates
+    window.addEventListener("cartUpdated", updateCartCount);
+
+    return () => {
+      window.removeEventListener("storage", updateCartCount);
+      window.removeEventListener("cartUpdated", updateCartCount);
+    };
+  }, []);
 
   return (
     <nav className="fixed top-0 left-0 w-full bg-neutralWhite z-40 border-b-4 border-neutralBlack">
@@ -32,9 +54,9 @@ function Header() {
               </Link>
             </li>
             <li>
-              <a href="/about" className="hover:underline hover:text-primary">
+              <Link to="/about" className="hover:underline hover:text-primary">
                 About
-              </a>
+              </Link>
             </li>
             <li>
               <a href="#" className="hover:underline hover:text-primary">
@@ -46,9 +68,14 @@ function Header() {
 
         <ul className=" text-neutralBlack hidden lg:block">
           <li>
-            <a href="#" className="hover:underline hover:text-primary">
-              Cart
-            </a>
+            <Link to="/cart" className="relative hover:text-primary">
+              <ShoppingCart className="inline-block" size={24} />
+              {cartCount > 0 && (
+                <span className="absolute -top-2 -right-2 bg-primary text-neutralWhite w-5 h-5 rounded-full flex items-center justify-center text-xs font-bold">
+                  {cartCount}
+                </span>
+              )}
+            </Link>
           </li>
         </ul>
 
@@ -83,13 +110,13 @@ function Header() {
               </Link>
             </li>
             <li className="py-2">
-              <a
-                href="/about"
+              <Link
+                to="/about"
                 className="hover:underline hover:text-primary"
                 onClick={toggleMenu}
               >
                 About
-              </a>
+              </Link>
             </li>
             <li className="py-2">
               <a

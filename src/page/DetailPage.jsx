@@ -4,19 +4,48 @@ import { ArrowLeft, ShoppingCart, Zap } from "lucide-react";
 
 function DetailPage() {
   const { id } = useParams();
-
   const [dataproduct, setDataproduct] = useState([]);
   const navigate = useNavigate();
   const [selectedSize, setSelectedSize] = useState(null);
   const [isAddingToCart, setIsAddingToCart] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
 
   const sizes = ["US 7", "US 8", "US 9", "US 10", "US 11", "US 12"];
 
   const handleAddToCart = () => {
     setIsAddingToCart(true);
+
+    // Get existing cart items from localStorage
+    const existingCart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    // Create new cart item
+    const newItem = {
+      id: dataproduct.id,
+      name: dataproduct.name,
+      price: dataproduct.sell_price,
+      size: selectedSize,
+      image: dataproduct.thumbnailUrl,
+      quantity: 1,
+    };
+
+    // Check if item already exists with same size
+    const existingItemIndex = existingCart.findIndex(
+      (item) => item.id === newItem.id && item.size === newItem.size
+    );
+
+    if (existingItemIndex !== -1) {
+      existingCart[existingItemIndex].quantity += 1;
+    } else {
+      existingCart.push(newItem);
+    }
+
+    // Save back to localStorage
+    localStorage.setItem("cart", JSON.stringify(existingCart));
+
     setTimeout(() => {
       setIsAddingToCart(false);
-      // Add actual cart logic here
+      setShowAlert(true);
+      setTimeout(() => setShowAlert(false), 3000);
     }, 1000);
   };
 
@@ -34,6 +63,19 @@ function DetailPage() {
 
   return (
     <div className="min-h-screen bg-neutralWhite py-8 mt-14">
+      {/* Custom Alert */}
+      {showAlert && (
+        <div className="fixed top-20 right-4 z-50 animate-fade-in">
+          <div className="bg-buttonGreen border-4 border-neutralBlack px-6 py-4 transform rotate-2 shadow-lg">
+            <div className="transform -rotate-2">
+              <p className="font-grotesk font-bold text-neutralBlack">
+                Product added to cart! 🛍️
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Back Navigation */}
       <div className="max-w-6xl mx-auto px-4 mb-8">
         <button

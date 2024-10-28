@@ -15,12 +15,6 @@ function AboutPage() {
     });
   }, []);
 
-  const addToRefs = (el) => {
-    if (el && !headingRefs.current.includes(el)) {
-      headingRefs.current.push(el);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-neutralWhite">
       {/* Hero Section */}
