@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import ImageRender from "../common/ImageRender";
 
 import New1 from "../../assets/images/Shoes1.jpg";
 import New2 from "../../assets/images/Shoes5.jpg";
@@ -81,17 +80,12 @@ function NewArrivals() {
                   key={product.id}
                   className="w-full flex-shrink-0 text-center"
                 >
-                  <ImageRender
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-[30rem] object-cover border-4 border-neutralBlack"
-                  />
-                  {/* <img
+                  <img
                     src={product.image}
                     alt={product.name}
                     loading="lazy"
                     className="w-full h-[30rem] object-cover border-4 border-neutralBlack"
-                  /> */}
+                  />
 
                   <div className="flex justify-between border-x-4 border-b-4 border-neutralBlack px-[4.2rem]">
                     <div className="flex flex-col justify-center items-start px-4 py-2">

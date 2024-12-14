@@ -1,5 +1,4 @@
 import React from "react";
-import ImageRender from "../common/ImageRender";
 
 import Category01 from "../../assets/images/HeroShoes1.jpg";
 import Category02 from "../../assets/images/Shoes3.jpg";
@@ -31,17 +30,13 @@ function ShopByCategory() {
         {categories.map((category) => (
           <div key={category.id} className="relative group">
             <div className="absolute inset-0 bg-primary opacity-20 group-hover:opacity-0 transition-opacity duration-300"></div>
-            <ImageRender
-              src={category.image}
-              alt={category.name}
-              className="w-full h-72 object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300"
-            />
-            {/* <img
+
+            <img
               src={category.image}
               alt={category.name}
               loading="lazy"
               className="w-full h-72 object-cover filter grayscale group-hover:grayscale-0 transition-all duration-300"
-            /> */}
+            />
             <div className="absolute inset-0 flex items-center justify-center">
               <h3 className="text-6xl font-black text-neutralWhite uppercase bg-neutralBlack px-4 py-2 transform -skew-x-12">
                 {category.name}
